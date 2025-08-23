@@ -4,21 +4,24 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -29,11 +32,12 @@ import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import roceana.composeapp.generated.resources.Res
+import roceana.composeapp.generated.resources.icon_google
 import roceana.composeapp.generated.resources.img_auth
 
 @Composable
 fun AuthScreen(
-    onGetStarted: () -> Unit = {},
+    onSignInWithGoogle: () -> Unit = {},
 ) {
     Box(
         modifier = Modifier
@@ -69,8 +73,9 @@ fun AuthScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Spacer(modifier = Modifier.height(16.dp))
+
             Text(
-                text = "Control Your Home,\nAnywhere Anytime",
+                text = "Find Your Items,\nAnytime Anywhere",
                 color = Color.White,
                 fontSize = 34.sp,
                 fontWeight = FontWeight.ExtraBold,
@@ -82,43 +87,57 @@ fun AuthScreen(
             )
 
             Spacer(modifier = Modifier.height(32.dp))
+
             Text(
-                text = "Seamlessly manage lights, locks, and more—right from your phone.",
+                text = "Detect and monitor items in your room\naccessible from your phone anywhere.",
                 color = Color(0xFFDDDDDD),
                 fontSize = 14.sp,
                 textAlign = TextAlign.Center,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 14.dp)
+                    .padding(horizontal = 8.dp)
             )
 
             Spacer(modifier = Modifier.height(32.dp))
+
+            // 👉 Sign in with Google Button
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(56.dp)
-                    .clip(RoundedCornerShape(28.dp))
-                    .shadow(elevation = 6.dp, shape = RoundedCornerShape(28.dp))
+                    .height(46.dp)
+                    .clip(RoundedCornerShape(12.dp))
             ) {
-                Button (
-                    onClick = onGetStarted,
-                    shape = RoundedCornerShape(28.dp),
+                Button(
+                    onClick = onSignInWithGoogle,
+                    shape = RoundedCornerShape(12.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = Color.White),
-                    modifier = Modifier
-                        .fillMaxSize()
+                    modifier = Modifier.fillMaxSize(),
+                    contentPadding = PaddingValues(horizontal = 20.dp)
                 ) {
+                    Icon(
+                        painter = painterResource(Res.drawable.icon_google),
+                        contentDescription = "Google Sign In",
+                        tint = Color.Unspecified, // biar warnanya asli
+                        modifier = Modifier
+                            .size(24.dp)
+                    )
+
+                    Spacer(modifier = Modifier.width(12.dp))
+
                     Text(
-                        text = "Get Started",
+                        text = "Sign in with Google",
                         color = Color.Black,
                         fontSize = 16.sp,
                         fontWeight = FontWeight.SemiBold
                     )
                 }
             }
+
             Spacer(modifier = Modifier.height(14.dp))
         }
     }
 }
+
 
 @Preview
 @Composable
