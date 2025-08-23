@@ -115,7 +115,7 @@ fun AuthScreen(
                     Icon(
                         painter = painterResource(Res.drawable.icon_google),
                         contentDescription = "Google Sign In",
-                        tint = Color.Unspecified, // biar warnanya asli
+                        tint = Color.Unspecified,
                         modifier = Modifier
                             .size(24.dp)
                     )
