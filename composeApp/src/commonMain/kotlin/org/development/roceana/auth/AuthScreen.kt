@@ -4,24 +4,19 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -33,13 +28,12 @@ import org.development.roceana.auth.component.GoogleButton
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import roceana.composeapp.generated.resources.Res
-import roceana.composeapp.generated.resources.icon_google
 import roceana.composeapp.generated.resources.img_auth
 
 @Composable
-fun AuthScreen(
-    onSignInWithGoogle: () -> Unit = {},
-) {
+fun AuthScreen() {
+    val loadingState by remember { mutableStateOf(false) }
+
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -101,8 +95,8 @@ fun AuthScreen(
 
             Spacer(modifier = Modifier.height(32.dp))
             GoogleButton(
-                isLoading = true,
-                onClick = onSignInWithGoogle
+                isLoading = loadingState,
+                onClick = {}
             )
             Spacer(modifier = Modifier.height(14.dp))
         }

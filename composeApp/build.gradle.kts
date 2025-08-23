@@ -44,6 +44,8 @@ kotlin {
 
             implementation(libs.auth.kmp)
             implementation(libs.firebase.app)
+            implementation(libs.kmpauth.uihelper)
+
         }
     }
 }

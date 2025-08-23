@@ -6,6 +6,8 @@ android-targetSdk = "35"
 androidx-activityCompose = "1.10.1"
 androidx-lifecycle = "2.8.4"
 compose-multiplatform = "1.8.0"
+kmpauthFirebase = "<version>"
+kmpauthGoogle = "<version>"
 kotlin = "2.2.0"
 navigation = "2.9.0-beta01"
 auth = "2.3.0-beta02"
@@ -33,6 +35,7 @@ compose-navigation = { module = "org.jetbrains.androidx.navigation:navigation-co
 
 auth-kmp = { module = "io.github.mirzemehdi:kmpauth-google", version.ref = "auth" }
 auth-firebase-kmp = { module = "io.github.mirzemehdi:kmpauth-firebase", version.ref = "auth" }
+kmpauth-uihelper = { module = "io.github.mirzemehdi:kmpauth-uihelper", version.ref = "kmpauthFirebase" }
 kmp-notifier = { module = "io.github.mirzemehdi:kmpnotifier", version.ref = "notifier" }
 
 firebase-app = { module = "dev.gitlive:firebase-app", version.ref = "firebase" }
