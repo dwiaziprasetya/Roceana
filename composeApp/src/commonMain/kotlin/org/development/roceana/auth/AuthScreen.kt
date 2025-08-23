@@ -29,6 +29,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import org.development.roceana.auth.component.GoogleButton
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import roceana.composeapp.generated.resources.Res
@@ -99,38 +100,10 @@ fun AuthScreen(
             )
 
             Spacer(modifier = Modifier.height(32.dp))
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(46.dp)
-                    .clip(RoundedCornerShape(12.dp))
-            ) {
-                Button(
-                    onClick = onSignInWithGoogle,
-                    shape = RoundedCornerShape(12.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = Color.White),
-                    modifier = Modifier.fillMaxSize(),
-                    contentPadding = PaddingValues(horizontal = 20.dp)
-                ) {
-                    Icon(
-                        painter = painterResource(Res.drawable.icon_google),
-                        contentDescription = "Google Sign In",
-                        tint = Color.Unspecified,
-                        modifier = Modifier
-                            .size(24.dp)
-                    )
-
-                    Spacer(modifier = Modifier.width(12.dp))
-
-                    Text(
-                        text = "Sign in with Google",
-                        color = Color.Black,
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.SemiBold
-                    )
-                }
-            }
-
+            GoogleButton(
+                isLoading = true,
+                onClick = onSignInWithGoogle
+            )
             Spacer(modifier = Modifier.height(14.dp))
         }
     }
