@@ -42,10 +42,9 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
 
-            implementation(libs.auth.kmp)
-            implementation(libs.firebase.app)
+            implementation(libs.kmpauth.google.vversion)
+            implementation(libs.kmpauth.firebase)
             implementation(libs.kmpauth.uihelper)
-
         }
     }
 }
