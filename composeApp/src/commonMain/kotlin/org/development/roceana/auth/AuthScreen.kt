@@ -99,8 +99,6 @@ fun AuthScreen(
             )
 
             Spacer(modifier = Modifier.height(32.dp))
-
-            // 👉 Sign in with Google Button
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
